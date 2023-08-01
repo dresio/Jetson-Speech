@@ -1,0 +1,14 @@
+services:
+  jetson-speech:
+    image: jetson-speech:0.1
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    command: sleep infinity
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
